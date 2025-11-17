@@ -14,7 +14,7 @@ Este documento detalla el despliegue, configuración y puesta en marcha del serv
  ![Config Basica](/Projecte0.0/Images/Bchecker.png)
 ---
 ### 1.2 Configuración de Red
-
+ ![Config Red](/Projecte0.0/Images/Red.png)
 ---
 ### 1.3 Configuración de MYSQL
 
