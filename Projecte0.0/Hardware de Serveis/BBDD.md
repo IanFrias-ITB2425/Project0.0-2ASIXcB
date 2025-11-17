@@ -12,6 +12,8 @@ Este documento detalla el despliegue, configuración y puesta en marcha del serv
 * **Ssh:** sudo apt install openssh-server
 
  ![Config Basica](/Projecte0.0/Images/Bchecker.png)
+ ![Config Red](/Projecte0.0/Images/ssh.png)
+ 
 ---
 ### 1.2 Configuración de Red
  ![Config Red](/Projecte0.0/Images/Red.png)
