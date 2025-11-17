@@ -9,6 +9,7 @@ Este documento detalla el despliegue, configuración y puesta en marcha del serv
 * **Usuario de Administración:** `bchecker` / `bchecker121`
 * **Datos:** Importación de CSV de OpenData BCN.
 * **Red:** Ubicado en la red DMZ (`LAN_SERVEIS`), accesible solo por el Servidor Web.
+* **Ssh:** sudo apt install openssh-server
 
  ![Config Basica](/Projecte0.0/Images/Bchecker.png)
 ---
