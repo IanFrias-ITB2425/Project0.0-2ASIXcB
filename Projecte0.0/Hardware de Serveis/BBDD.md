@@ -9,7 +9,7 @@ Este documento detalla el despliegue, configuración y puesta en marcha del serv
 * **Usuario de Administración:** `bchecker` / `bchecker121`
 * **Datos:** Importación de CSV de OpenData BCN.
 * **Red:** Ubicado en la red DMZ (`LAN_SERVEIS`), accesible solo por el Servidor Web.
-! [Config Basica](/Projecte0.0/Images/Bchecker.png)
+ ![Config Basica](/Projecte0.0/Images/Bchecker.png)
 ---
 ### 1.2 Configuración de Red
 
