@@ -19,5 +19,6 @@ Este documento detalla el despliegue, configuración y puesta en marcha del serv
  ![Config Red](/Projecte0.0/Images/Red.png)
 ---
 ### 1.3 Configuración de MYSQL
-
+ ![Install SQL](/Projecte0.0/Images/Mysql install.png)
+ 
 ---
