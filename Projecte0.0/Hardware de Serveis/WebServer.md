@@ -9,6 +9,6 @@
 
 ## 2. Creación de Usuarios 
 El primer paso fue crear el usuario bchecker en el sistema operativo.
-* **Creación de Usuario:**
-Para crear el usuario 'bchecker' lo que se hizo es usar la comanda **sudo usermod -aG sudo bchecker**. Con esta comanda se generearia el nuevo usuario.
+* **Creación de Usuario**
+* Para crear el usuario 'bchecker' lo que se hizo es usar la comanda **sudo usermod -aG sudo bchecker**. Con esta comanda se generearia el nuevo usuario.
 (AGREGAR CAPTURA DE LA CREACION DEL USUARIO)
