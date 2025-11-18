@@ -7,5 +7,8 @@
 
 ---
 
-## 2. Creación de Usuarios
-[cite_start]Se ha creado el usuario requerido para la administración del sistema[cite: 17].
+## 2. Creación de Usuarios 
+El primer paso fue crear el usuario bchecker en el sistema operativo.
+* **Creación de Usuario:**
+Para crear el usuario 'bchecker' lo que se hizo es usar la comanda **sudo usermod -aG sudo bchecker**. Con esta comanda se generearia el nuevo usuario.
+(AGREGAR CAPTURA DE LA CREACION DEL USUARIO)
