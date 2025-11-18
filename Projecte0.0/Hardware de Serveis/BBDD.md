@@ -21,4 +21,6 @@ Este documento detalla el despliegue, configuración y puesta en marcha del serv
 ### 1.3 Configuración de MYSQL
  ![Install SQL](/Projecte0.0/Images/Mysql_install.png)
  
+ ![Conf SQL](/Projecte0.0/Images/mysqlconf.png)
+ 
 ---
