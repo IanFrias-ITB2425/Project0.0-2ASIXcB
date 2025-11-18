@@ -23,4 +23,6 @@ Este documento detalla el despliegue, configuración y puesta en marcha del serv
  
  ![Conf SQL](/Projecte0.0/Images/mysqlconf.png)
  
+ ![Conf2 SQL](/Projecte0.0/Images/ImportarCSV.png)
+  
 ---
