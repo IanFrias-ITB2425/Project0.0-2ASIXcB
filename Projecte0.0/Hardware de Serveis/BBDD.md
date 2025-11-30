@@ -41,7 +41,9 @@ Habilitamos el acceso para que el servidor web (que tiene la IP 192.168.22.10) p
  ![Conf5 SQL](/Projecte0.0/Images/Usuario_remoto.png)
 
 Una vez tenemos el archivo CSV en el servidor, accedemos a la consola de MySQL (con el usuario `root` o `bchecker` si tiene permisos de FILE) para volcar los datos dentro de la tabla creada.
+
  ![Conf6 SQL](/Projecte0.0/Images/Importar_CSV_BBDD.png)
- 
+
+
  
 ---
