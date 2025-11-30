@@ -34,3 +34,20 @@ Hacemos una copia de seguridad y editamos.
 ![Conf](/Projecte0.0/Images/Conf1_FTP.png)
 
 ![Conf](/Projecte0.0/Images/Conf2_FTP.png)
+
+## 4. Preparación de Directorios
+Preparamos la estructura de carpetas dentro del home del usuario y creamos un archivo de prueba
+
+![Prep](/Projecte0.0/Images/Preparación_directorios.png)
+
+## 5. Configuración del Firewall (UFW)
+Configuramos el cortafuegos ufw para permitir las conexiones SSH y el tráfico FTP (puertos 20 y 21)
+
+![Firewall](/Projecte0.0/Images/Puertos_FTP.png)
+
+## 6. Configuración de RED
+Configuramos el archivo de netplan de la siguiente manera para poder movernos entre nuestro router y redes
+
+![RED](/Projecte0.0/Images/RED_FTP.png)
+
+
