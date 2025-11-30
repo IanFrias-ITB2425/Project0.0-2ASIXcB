@@ -28,4 +28,13 @@ Por defecto, MySQL solo escucha a 127.0.0.1 (localhost). Para permitir que el se
  Descargamos el archivo de datos abiertos de l'Ajuntament de Barcelona a la carpeta temporal para su posterior importación
  ![Conf2 SQL](/Projecte0.0/Images/ImportarCSV.png)
 
+Creamos el usuario bchecker para gestión local.
+ ![Conf3 SQL](/Projecte0.0/Images/Usuario_bchecker.png)
+
+Creamos la base de datos para el proyecto y definimos la estructura de la tabla centres_educatius
+ ![Conf4 SQL](/Projecte0.0/Images/Creación_BBDD.png)
+
+Habilitamos el acceso para que el servidor web (que tiene la IP 192.168.22.10) pueda conectarse
+ ![Conf5 SQL](/Projecte0.0/Images/Usuario_remoto.png)
+ 
 ---
