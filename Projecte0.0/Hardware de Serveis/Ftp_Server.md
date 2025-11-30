@@ -15,7 +15,7 @@ Creamos el usuario del sistema que se utilizará para la conexión FTP.
 
 sudo useradd -m -s /bin/bash bchecker
 sudo passwd bchecker
-# Password establecido: bchecker121
+Password establecido: bchecker121
 sudo usermod -aG sudo bchecker
 
  ![Config Basica](/Projecte0.0/Images/Preparación_usuario.png)
