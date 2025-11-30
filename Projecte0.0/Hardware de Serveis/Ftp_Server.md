@@ -1,7 +1,4 @@
 ---
-
-### Documento 2: Configuración del Servicio FTP
-
 # Configuración del Servidor FTP (F-NCC)
 
 **Host:** F-NCC (F-N02)  
