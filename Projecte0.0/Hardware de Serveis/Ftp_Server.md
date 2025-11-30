@@ -20,5 +20,17 @@ sudo usermod -aG sudo bchecker
 ## 2. Instalación del Servicio
 Instalamos el demonio vsftpd (Very Secure FTP Daemon) y SSH para administración.
 ![Instalación](/Projecte0.0/Images/Instalación_Servicio.png)
-![Instalación](/Projecte0.0/Images/Instalación_ServicioFTP.png)
+
 ![Instalación](/Projecte0.0/Images/Ssh.png)
+
+![Instalación](/Projecte0.0/Images/Instalación_ServicioFTP.png)
+
+## 3. Configuración de VSFTPD
+Editamos el archivo de configuración principal para asegurar el servicio y permitir la escritura.
+Hacemos una copia de seguridad y editamos.
+
+![Conf](/Projecte0.0/Images/Conf_FTP.png)
+
+![Conf](/Projecte0.0/Images/Conf1_FTP.png)
+
+![Conf](/Projecte0.0/Images/Conf2_FTP.png)
