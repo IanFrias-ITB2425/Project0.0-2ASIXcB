@@ -44,6 +44,6 @@ Una vez tenemos el archivo CSV en el servidor, accedemos a la consola de MySQL (
 
  ![Conf6 SQL](/Projecte0.0/Images/Importar_CSV_BBDD.png)
 
-
+Finalmente abrimos el puerto 3306 para la ip de nuestro servidor web y ya estaría hecha la configuración del servidor de base de datos.
  
 ---
