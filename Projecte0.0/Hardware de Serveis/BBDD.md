@@ -19,13 +19,13 @@ Este documento detalla el despliegue, configuración y puesta en marcha del serv
  ![Config Red](/Projecte0.0/Images/Red.png)
 ---
 ### 1.3 Configuración de MYSQL
- Primer, actualitzem els repositoris i instal·lem el servidor MySQL
+ Primero, actualitzamos los repositorios y instalamos el servidor MySQL
  ![Install SQL](/Projecte0.0/Images/Mysql_install.png)
  
-Per defecte, MySQL només escolta a 127.0.0.1 (localhost). Per permetre que el servidor Web (W-NCC) s'hi connecti, hem de modificar l'arxiu de configuració
+Por defecto, MySQL solo escucha a 127.0.0.1 (localhost). Para permitir que el servidor Web (W-NCC) se connecte, hemos de modificar el archivo de configuración
  ![Conf SQL](/Projecte0.0/Images/mysqlconf.png)
 
- Descarreguem el fitxer de dades obertes de l'Ajuntament de Barcelona a la carpeta temporal per a la seva posterior importació 
+ Descargamos el archivo de datos abiertos de l'Ajuntament de Barcelona a la carpeta temporal para su posterior importación
  ![Conf2 SQL](/Projecte0.0/Images/ImportarCSV.png)
 
 ---
