@@ -28,8 +28,8 @@ Se debe diseñar un diagrama de arquitectura que refleje la siguiente topología
 
 ### Clientes
 Para verificar el funcionamiento, la infraestructura cuenta con 2 clientes:
-* 1 Cliente Windows. | [📄 Ver README Client Windows](Projecte0.0/Hardware_de_Serveis/Hardware_Clients/Client_Windows.md) |
-* 1 Cliente Linux. | [📄 Ver README Client Ubuntu](Projecte0.0/Hardware_de_Serveis/Hardware_Clients/Client_Ubuntu.md) |
+* 1 Cliente Windows.  [📄 Ver README Client Windows](Projecte0.0/Hardware_de_Serveis/Hardware_Clients/Client_Windows.md) 
+* 1 Cliente Linux.  [📄 Ver README Client Ubuntu](Projecte0.0/Hardware_de_Serveis/Hardware_Clients/Client_Ubuntu.md) 
 
 ---
 
