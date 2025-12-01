@@ -368,8 +368,10 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 Se comprobó que el servidor Web podía conectar al servicio MySQL, validando que el forwarding del Router y los permisos de usuario en la BBDD fueran correctos.
 Prueba de Conexión:
 ```bash
-mysql -h 192.168.22.11 -u bchecker -p #Se comprueba y valida la conexión con el usuario bchecker con la BBDD
+mysql -h 192.168.22.11 -u bchecker -p #Se comprueba la conexión con el usuario bchecker con la BBDD
 ```
+![bcheker conexion con la bbdd](../Images/bchecker_conexion_bbdd.png
+)
 
 ---
 
