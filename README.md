@@ -40,7 +40,7 @@ A continuación se detallan los servicios que componen la infraestructura. Haz c
 | Servicio / Hostname | Descripción Breve | Enlace a Documentación |
 | :--- | :--- | :--- |
 | **Router (R-NCC)** | Configuración de enrutamiento, NAT y Firewall. | [📄 Ver README Router](./router/README.md) |
-| **Web Server (W-NCC)** | Servidor Web para alojar la aplicación multicapa. | [📄 Ver README Web](./web/README.md) |
+| **Web Server (W-NCC)** | Servidor Web para alojar la aplicación multicapa. | [📄 Ver README Web](Projecte0.0/Hardware_de_Serveis/WebServer.md) |
 | **Base de Datos (B-NCC)** | MySQL con datos de OpenData BCN cargados. | [📄 Ver README BBDD](Projecte0.0/Hardware_de_Serveis/BBDD.md) |
 | **DNS / DHCP** | Resolución de nombres (incluyendo R-NCC) y asignación de IPs. | [📄 Ver README Red](./network_services/README.md) |
 | **FTP (F-NCC)** | Servidor de transferencia de archivos. | [📄 Ver README FTP](Projecte0.0/Hardware_de_Serveis/Ftp_Server.md) |
