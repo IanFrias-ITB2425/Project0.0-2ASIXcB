@@ -18,6 +18,10 @@ Para cumplir con los requisitos del proyecto y asegurar la auditabilidad del sis
 ### 2.1. Creación del Usuario 'bchecker'
 Se creó el usuario `bchecker` y se le asignaron permisos de administración (sudo) para permitir la gestión del servidor.
 
+* **Usuario:** `bchecker`
+* **Password:** `bchecker121` (o `pirineus`)
+* **Permisos:** Se añadió al grupo `sudo` para tareas administrativas.
+
 **Comandos ejecutados:**
 1.  **Creación del usuario:** Se utilizó el comando `useradd` para registrar el usuario en el sistema y crear su directorio personal.
     ```bash
