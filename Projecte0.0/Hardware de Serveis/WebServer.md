@@ -82,5 +82,36 @@ sudo ip link set enp2s0 down
 # Una vez deshabilitadas las interfaces redundantes, se aplicó 'sudo netplan apply'
 # para asegurar que la interfaz principal se activara con los parámetros definidos.
 ```
+![Desactivar Interfaces](../Images/desactivar_interfaces.PNG)
+
+### 3.3. Verificación Final
+Tras aplicar la configuración (`sudo netplan apply`), se verificó que solo la interfaz correcta tenía IP y conexión, y que la comunicación con el Gateway (Router R-NCC) se estableció correctamente.
+
+**Estado de la IP:**
+Se comprobó que la interfaz principal (`enp3s0`) tenía asignada la dirección estática definida (`192.168.22.10/24`).
+
+```bash
+ip r
+```
+![Comprovacion Interficies](../Images/comprobacion_interficies_webserver.PNG)
+
+Prueba de conexión: Se validó la conectividad al Router. Este paso es fundamental para confirmar que la comunicación entre el Servidor Web (DMZ) y el Router funciona.
+
+```bash
+ping 192.168.22.1 #Router
+ping 192.168.22.11 #BBDD
+```
+
+---
+
+## 4. Instalación de Servicios
+
+Para convertir crear el Web Server y poder dar visivilidad a la web y tener conexión con los otros servicios se instaló los siguiente (Apache, PHP y los conectores de Base de Datos).
+
+### 4.1. Actualización de Repositorios (Preparación)
+Antes de instalar cualquier paquete, es un paso obligatorio y de buenas prácticas actualizar el índice de paquetes local del sistema para asegurar que se utilicen las versiones más recientes y estables.
+
+```bash
+sudo apt update
 
 
