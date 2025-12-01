@@ -67,5 +67,20 @@ network:
           - 8.8.8.8
 ```
 ![Neplan del Web Server](../Images/netplan_webserver.PNG)
-    
+
+
+### 3.2. Gestión y Limpieza de Interfaces
+Durante el despliegue, se detectó que el sistema activaba múltiples interfaces de red (`enp1s0`, `enp2s0`) que generaban **conflictos de enrutamiento** (el tráfico intentaba salir por la interfaz equivocada).
+
+**Solución aplicada:**
+Se procedió a deshabilitar manualmente las interfaces redundantes para forzar que todo el tráfico fluyera exclusivamente por la interfaz configurada (`enp3s0`), asegurando así que el tráfico con destino a la Intranet pasara por la ruta correcta.
+
+**Comandos de gestión de interfaces:**
+```bash
+sudo ip link set enp1s0 down
+sudo ip link set enp2s0 down
+# Una vez deshabilitadas las interfaces redundantes, se aplicó 'sudo netplan apply'
+# para asegurar que la interfaz principal se activara con los parámetros definidos.
+```
+
 
