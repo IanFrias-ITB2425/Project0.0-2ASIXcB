@@ -22,6 +22,7 @@ Se detectó que el sistema tenía activas interfaces que no estaban conectadas a
 ```bash
 sudo ip link set enp1s0 down
 sudo ip link set enp2s0 down
+sudo ip link set enp3s0 down
 ```
 ![Desactivar interfaces ubuntu](/Projecte0.0/Images/desactivar_interfaces_ubuntu.PNG)
 
@@ -62,10 +63,14 @@ Se ejecutó una prueba de conectividad Ping hacia el Servidor Web. Esta prueba c
 # Ping de 4 paquetes a la IP del Web Server
 ping -c 4 192.168.22.10
 ```
-
+![Ping Ubuntu a web server](/Projecte0.0/Images/ping_cliente_ubutu_web.png
+)
 ### 3.2. Acceso al Servicio Web
 Ahora comprovaremos si el cliente pudo acceder a la Web mediante el Router
 
 URL de Acceso: http://192.168.22.10
+![Cliente Ubuntu Webserver](/Projecte0.0/Images/cliente_ubuntu_webserver.png)
+
+
 
 
