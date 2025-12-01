@@ -44,7 +44,7 @@ A continuación se detallan los servicios que componen la infraestructura. Haz c
 | **Base de Datos (B-NCC)** | MySQL con datos de OpenData BCN cargados. | [📄 Ver README BBDD](Projecte0.0/Hardware_de_Serveis/BBDD.md) |
 | **DNS** | Resolución de nombres (incluyendo R-NCC). | [📄 Ver README Red](Projecte0.0/Hardware_xarxa/DNS.md) |
 | **FTP (F-NCC)** | Servidor de transferencia de archivos. | [📄 Ver README FTP](Projecte0.0/Hardware_de_Serveis/Ftp_Server.md) |
-| **DHCP** | asignación de IPs. | [📄 Ver README Red](Projecte0.0/Hardware_xarxa/DHCP.md) |
+| **DHCP** | asignación de IPs. | [📄 Ver README Red](Projecte0.0/Hardware_xarxa/dhcp_documentacion.md) |
 ---
 
 ## 🔐 Requisitos de Acceso y Credenciales
