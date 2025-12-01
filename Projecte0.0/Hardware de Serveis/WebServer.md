@@ -29,7 +29,7 @@ Se creó el usuario `bchecker` y se le asignaron permisos de administración (su
     ```bash
     sudo passwd bchecker
     ```
-    ![Asignación de contraseña bchecker](../Images/contrasenya_usuari.png)
+    ![Asignación de contraseña bchecker](../Images/contrasenya_usuari.PNG)
     
 3.  **Permisos de Administrador:** Se añadió el usuario al grupo *sudo* para permitirle ejecutar tareas administrativas.
     ```bash
