@@ -40,5 +40,32 @@ Se creó el usuario `bchecker` y se le asignaron permisos de administración (su
     sudo usermod -aG sudo bchecker
     ```
     ![Permisos del usuario bchecker](../Images/comprobacion_usuario.PNG)
+
+---
+
+## 3. Configuración de Red e Interfaces
+Debido a la arquitectura del proyecto, el servidor Web se ubica en la **DMZ**. Para garantizar la comunicación correcta y evitar conflictos con las interfaces por defecto de la virtualización, se realizó una configuración manual estricta.
+
+### 3.1. Definición de Parámetros (Netplan)
+Se editó el archivo de configuración de red para asignar la IP estática y la puerta de enlace (Gateway) hacia el Router del proyecto.
+
+* **Archivo:** `/etc/netplan/00-installer-config.yaml`
+* **Interfaz activa:** `enp3s0`
+
+**Código de configuración aplicado:**
+```yaml
+# Let NetworkManager manage all devices on this system
+network:
+  version: 2
+  ethernets:
+    enp3s0:
+      addresses:
+        - 192.168.22.10/24
+      gateway4: 192.168.22.1
+      nameservers:
+        addresses:
+          - 8.8.8.8
+```
+![Neplan del Web Server](../Images/netplan_webserver.PNG)
     
 
