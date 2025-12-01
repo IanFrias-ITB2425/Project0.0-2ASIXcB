@@ -142,6 +142,7 @@ sudo apt install apache2 php libapache2-mod-php php-mysql mariadb-client openssh
 **Comando de Verificación:**
 ```bash
 sudo systemctl status apache2
+```
 
 
 
