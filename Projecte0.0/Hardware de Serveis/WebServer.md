@@ -108,7 +108,7 @@ ping 192.168.22.11 #BBDD
 
 Para habilitar la funcionalidad completa del Web Server (W-NCC), se instalaron los siguientes componentes esenciales: el servidor HTTP (apache2), el intérprete de código (php) junto con el módulo de integración (libapache2-mod-php) y el conector de base de datos (php-mysql). Además, para facilitar las pruebas de conectividad y la administración remota, se incluyeron el cliente de BBDD (mariadb-client) y el servidor de acceso seguro (openssh-server).
 
-### 4.1. Actualización de Repositorios (Preparación)
+### 4.1. Actualización de Repositorios
 Antes de instalar cualquier paquete, es un paso obligatorio y de buenas prácticas actualizar el índice de paquetes local del sistema para asegurar que se utilicen las versiones más recientes y estables.
 
 ```bash
@@ -136,18 +136,246 @@ sudo apt install apache2 php libapache2-mod-php php-mysql mariadb-client openssh
 
 ### 4.3. Verificación de Componentes Instalados
 
-#### 1. Verificación de Servicios Principales (Daemons)
+#### 1. Verificación de Servicios
 
 ##### 1.1. Servidor Web (Apache2)
 **Comando de Verificación:**
 ```bash
 sudo systemctl status apache2
 ```
+![Staus Apache](../Images/status_apache.PNG)
+
+##### 1.2. Servidor SSH
+**Comando de Verificación:**
+```bash
+sudo systemctl status ssh
+```
+![Staus SSH](../Images/Status_ssh.PNG)
 
 
+#### 2. Verificación de Módulos y Clientes
+
+##### 2.1. Componentes PHP
+a) Intérprete PHP:
+
+```bash
+php -v
+```
+
+![php -v](../Images/php_v.PNG)
 
 
+b) Módulo Apache: (Confirma que PHP puede ejecutarse en la web)
 
+```bash
+apache2ctl -M | grep php
+```
+
+
+##### 2.2. Conector de Base de Datos
+**Comando de Verificación:**
+```bash
+php -m | grep mysql
+```
+
+![php -m](../Images/php_m.PNG)
+
+##### 2.3. Herramienta Cliente MariaDB
+**Comando de Verificación:**
+
+```bash
+mysql --version
+```
+![mysql version](../Images/msqlversion_webserver.PNG)
+
+
+##### 2.4. Utilidad de Diagnóstico de Red
+**Comando de Verificación:**
+
+```bash
+ping -V
+```
+![mysql version](../Images/ping_version.PNG)
+
+
+#### 3. Prueba Funcional
+```bash
+sudo ss -tuln  # Verificar si el puerto 80 está escuchando
+curl localhost # Verificar que Apache responde
+```
+![tuln](../Images/tuln_webserver.PNG)
+
+### 4.4. Configuración de Acceso Remoto al Servicio MySQL
+Para permitir que el servidor Web pueda acceder a la BBDD, se debe asegurar que el puerto por defecto de MySQL (3306) esté abierto en el firewall del servidor.
+Comandos ejecutados en el servidor de BBDD :
+
+1. Apertura del Puerto 3306
+
+```bash 
+sudo ufw allow 3306/tcp
+```
+![ufw 3306](../Images/apertura_de_3306.PNG)
+
+2. Recarga del Firewall
+
+```bash 
+sudo ufw reload
+```
+![reload](../Images/ufw_reload_ws.PNG)
+
+---
+
+## 5. Despliegue de la Aplicación y Conexión Final
+En esta sección se documenta la implementación del script PHP encargado de procesar la solicitud del cliente, conectar con el servidor de Base de Datos (BBDD) y renderizar los datos.
+
+### 5.1. Eliminación del Contenido Estático
+Antes de crear el script dinámico, se eliminó el archivo index.html predeterminado para asegurar que Apache priorice la ejecución del archivo PHP y no se produzcan conflictos.
+**Comando de Verificación:**
+```bash
+sudo rm /var/www/html/index.html
+```
+![borrar_html](../Images/borrar_html_webserver.PNG)
+
+
+### 5.2. Implementación del Script PHP
+Se creó el archivo index.php en el directorio del servidor web (/var/www/html/).
+```bash
+sudo nano /var/www/html/index.php
+```
+![Creacion php](../Images/creacion_php.PNG)
+
+**Lógica del Script:**
+
+1.  Define los parámetros de conexión (`servername`, `username`, `password`, `dbname`).
+2.  Establece la conexión al puerto 3306 del servidor BBDD (`192.168.22.11`).
+3.  Si la conexión es exitosa, ejecuta la consulta `SELECT * FROM centres_educatius`.
+4.  Muestra los resultados de forma dinámica en una tabla HTML.
+
+Código del Script:
+```bash
+// ==========================================
+// CONFIGURACIÓN DE LA CONEXIÓN
+// ==========================================
+// IP del servidor de Base de Datos (B-NCC).
+// Pon aquí la IP que tenga tu compañero (ej. 192.168.22.11 o 192.168.20.10)
+$servername = "192.168.22.11";
+
+// Usuario del proyecto (definido en el PDF)
+$username = "bchecker";
+
+// Contraseña (usa 'pirineus' si la cambiaste, o 'bchecker121' si es la original)
+$password = "bchecker121";
+
+// Nombre de la BBDD y la Tabla (confírmalo con tu compañero)
+$dbname = "equipaments_bcn";
+$tablename = "centres_educatius";
+
+// Crear la conexión
+$conn = new mysqli($servername, $username, $password, $dbname);
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>P0.0 - Datos Barcelona</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+
+        /* Estilos de la tabla */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.9em; }
+        th, td { padding: 12px; border-bottom: 1px solid #ddd; text-align: left; }
+        th { background-color: #007bff; color: white; }
+        tr:hover { background-color: #f1f1f1; }
+
+        /* Cajas de estado */
+        .status-ok { color: green; font-weight: bold; padding: 10px; background: #e6fffa; border: 1px solid green; }
+        .status-err { color: red; font-weight: bold; padding: 10px; background: #ffe6e6; border: 1px solid red; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Listado de Equipamientos (Desde B-NCC)</h1>
+    <p>Servidor Web: <strong>W-NCC</strong> (IP: <?php echo $_SERVER['SERVER_ADDR']; ?>)</p>
+
+    <?php
+    // 1. VERIFICAR CONEXIÓN
+    if ($conn->connect_error) {
+        echo "<div class='status-err'>";
+        echo "❌ Error de conexión con B-NCC: " . $conn->connect_error;
+        echo "<br><small>Verifica la IP, el usuario, la contraseña o el Firewall del servidor de BBDD.</small>";
+        echo "</div>";
+        die(); // Detener si no hay conexión
+    } else {
+        echo "<div class='status-ok'>✅ Conexión exitosa a la base de datos: $dbname</div>";
+    }
+
+    // 2. CONSULTA SQL
+    $sql = "SELECT * FROM $tablename";
+    $result = $conn->query($sql);
+
+    // 3. MOSTRAR DATOS
+    if ($result) {
+        if ($result->num_rows > 0) {
+            echo "<table><thead><tr>";
+
+            // Pintar cabeceras automáticamente
+            $fields = $result->fetch_fields();
+            foreach ($fields as $field) {
+                echo "<th>" . htmlspecialchars($field->name) . "</th>";
+            }
+            echo "</tr></thead><tbody>";
+
+            // Pintar filas de datos
+            while($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                foreach($row as $data) {
+                    echo "<td>" . htmlspecialchars($data) . "</td>";
+                }
+                echo "</tr>";
+            }
+            echo "</tbody></table>";
+        } else {
+            echo "<p>La conexión funciona, pero la tabla <strong>$tablename</strong> está vacía.</p>";
+        }
+    } else {
+        echo "<div class='status-err'>";
+        echo "❌ Error en la consulta SQL.<br>";
+        echo "Posible causa: La tabla '$tablename' no existe.<br>";
+        echo "Error técnico: " . $conn->error;
+        echo "</div>";
+    }
+
+    $conn->close();
+    ?>
+</div>
+
+</body>
+</html>
+```
+
+### 5.3. Verificación de la Conexión a BBDD
+Se comprobó que el servidor Web podía conectar al servicio MySQL, validando que el forwarding del Router y los permisos de usuario en la BBDD fueran correctos.
+Prueba de Conexión:
+```bash
+mysql -h 192.168.22.11 -u bchecker -p #Se comprueba y valida la conexión con el usuario bchecker con la BBDD
+```
+
+---
+
+
+## 6. Pruebas Finales y Resultado
+### 6.1. Acceso y Visualización de la Web
+
+Se comprueba si la implemetanción ha sido correcta y se procede a visualizar la Web
+
+1. Máquina de Prueba: Cliente Linux/Windows
+2. URL de Acceso: http://192.168.22.10
+
+![Pagina Web](../Images/pagina_web.PNG)
 
 
 
