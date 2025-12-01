@@ -39,7 +39,7 @@ A continuación se detallan los servicios que componen la infraestructura. Haz c
 
 | Servicio / Hostname | Descripción Breve | Enlace a Documentación |
 | :--- | :--- | :--- |
-| **Router (R-NCC)** | Configuración de enrutamiento, NAT y Firewall. | [📄 Ver README Router](Projecte0.0/Hardware_xarxa/Router.md) |
+| **Router (R-NCC)** | Configuración de enrutamiento, NAT y Firewall. | [📄 Ver README Router](Projecte0.0/Hardware_xarxa/router_documentacion.md) |
 | **Web Server (W-NCC)** | Servidor Web para alojar la aplicación multicapa. | [📄 Ver README Web](Projecte0.0/Hardware_de_Serveis/WebServer.md) |
 | **Base de Datos (B-NCC)** | MySQL con datos de OpenData BCN cargados. | [📄 Ver README BBDD](Projecte0.0/Hardware_de_Serveis/BBDD.md) |
 | **DNS** | Resolución de nombres (incluyendo R-NCC). | [📄 Ver README Red](Projecte0.0/Hardware_xarxa/DNS.md) |
