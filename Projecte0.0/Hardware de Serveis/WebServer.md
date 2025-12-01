@@ -35,6 +35,6 @@ Se creó el usuario `bchecker` y se le asignaron permisos de administración (su
     ```bash
     sudo usermod -aG sudo bchecker
     ```
-    ![Permisos del usuario bchecker](../Images/permisos_bchecker.PNG)
+    ![Permisos del usuario bchecker](../Images/comprobacion_usuario.PNG)
     
-> **[IMAGEN]:** *Captura de pantalla mostrando la ejecución de los comandos y la verificación con `id bchecker`.*
+
