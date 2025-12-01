@@ -21,6 +21,7 @@ Se detectó que el sistema tenía activas interfaces adicionales que no estaban 
 ```powershell
 Disable-NetAdapter -Name "Ethernet 2"
 Disable-NetAdapter -Name "Ethernet 3"
+Disable-NetAdapter -Name "Ethernet 1"
 ```
 **2. Desactivación del Firewall**
 Se desactivó el Firewall de Windows Defender para asegurar que no bloquease el tráfico ICMP
@@ -39,20 +40,23 @@ ipconfig /all
 ## 3. Pruebas de Conectividad Funcional
 Se realizaron pruebas para validar la comunicación a través del Router.
 
-### 3.1. Prueba de Enrutamiento al Servidor Web
-Se ejecutó una prueba de conectividad Ping hacia el Servidor Web
+### 3.1. Prueba de Enrutamiento al Servidor Web y Router
+Se ejecutó una prueba de conectividad Ping hacia el Servidor Web y el Router
 **Comando de verificación:**
 
 ```powershell
 ping 192.168.22.10
 ```
 
+
+
 ### 3.2. Acceso al Servicio Web
 Ahora comprobaremos si el cliente pudo acceder a la Web mediante el Route
 ```bash
 URL de Acceso: http://192.168.22.10
 ```
-![Web desde Windows](../Images/web_windows.png)
+
+
 
 
 
