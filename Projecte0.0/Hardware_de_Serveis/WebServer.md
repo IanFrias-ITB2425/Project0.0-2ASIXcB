@@ -19,7 +19,7 @@ Para cumplir con los requisitos del proyecto y asegurar la auditabilidad del sis
 Se creó el usuario `bchecker` y se le asignaron permisos de administración (sudo) para permitir la gestión del servidor.
 
 * **Usuario:** `bchecker`
-* **Password:** `bchecker121` (o `pirineus`)
+* **Password:** `bchecker121`
 * **Permisos:** Se añadió al grupo `sudo` para tareas administrativas.
 
 **Comandos ejecutados:**
@@ -101,6 +101,10 @@ Prueba de conexión: Se validó la conectividad al Router. Este paso es fundamen
 ping 192.168.22.1 #Router
 ping 192.168.22.11 #BBDD
 ```
+![Comprovacion ping router](../Images/ping_web_router.png)
+![Comprovacion ping router](../Images/ping_web_bbdd.png)
+
+
 
 ---
 
@@ -170,6 +174,9 @@ b) Módulo Apache: (Confirma que PHP puede ejecutarse en la web)
 ```bash
 apache2ctl -M | grep php
 ```
+![apache2ctl](../Images/apache_w_bbdd.png)
+
+
 
 
 ##### 2.2. Conector de Base de Datos
