@@ -24,6 +24,7 @@ Se creó el usuario `bchecker` y se le asignaron permisos de administración (su
     sudo useradd -m -s /bin/bash bchecker
     ```
     ![Creación del usuario](../Images/creacion_usuario_bchecker_webserver.png)
+    
 2.  **Asignación de contraseña:** Se estableció la contraseña requerida.
     ```bash
     sudo passwd bchecker
