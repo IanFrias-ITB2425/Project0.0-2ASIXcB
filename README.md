@@ -67,9 +67,9 @@ Como prueba final de la infraestructura, se ha desplegado una pequeña aplicaci�
 ## 📅 Gestión del Proyecto
 * **Planificación:** Proofhub.
 * **Metodología:** 3 Sprints de 10 horas cada uno (quincenales).
-* **Entrega:** Antes del 18/11.
+* **Entrega:** 02/12/2025
 
 ## 👥 Autores
-* **Grupo:** [Tu Número de Grupo, ej: G01]
-* **Integrantes:** [Tu Nombre]
-* **Fecha:** Octubre 2025
+* **Grupo:** [G02]
+* **Integrantes:** [Ian Frias, Izan Fernandez, Anmolpreet]
+* **Fecha:** 01/12/2025
