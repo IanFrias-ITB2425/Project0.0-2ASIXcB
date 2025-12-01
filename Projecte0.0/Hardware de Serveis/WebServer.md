@@ -106,12 +106,47 @@ ping 192.168.22.11 #BBDD
 
 ## 4. Instalación de Servicios
 
-Para convertir crear el Web Server y poder dar visivilidad a la web y tener conexión con los otros servicios se instaló los siguiente (Apache, PHP y los conectores de Base de Datos).
+Para habilitar la funcionalidad completa del Web Server (W-NCC), se instalaron los siguientes componentes esenciales: el servidor HTTP (apache2), el intérprete de código (php) junto con el módulo de integración (libapache2-mod-php) y el conector de base de datos (php-mysql). Además, para facilitar las pruebas de conectividad y la administración remota, se incluyeron el cliente de BBDD (mariadb-client) y el servidor de acceso seguro (openssh-server).
 
 ### 4.1. Actualización de Repositorios (Preparación)
 Antes de instalar cualquier paquete, es un paso obligatorio y de buenas prácticas actualizar el índice de paquetes local del sistema para asegurar que se utilicen las versiones más recientes y estables.
 
 ```bash
 sudo apt update
+```
+![Update](../Images/update_wesbserver.png)
+
+
+### 4.2. Instalación de Paquetes
+Se utilizó el siguiente comando de instalación, asegurando que todos los componentes requeridos estuvieran presentes:
+
+```bash
+sudo apt install apache2 php libapache2-mod-php php-mysql mariadb-client openssh-server -y
+```
+![Instalacion de los servicios](../Images/instalacion_de_los_servicios_webserver.png)
+
+| Paquete Instalado | Función Principal | Propósito en el Proyecto |
+| :--- | :--- | :--- |
+| **apache2** | Servidor HTTP | Servir la página web. |
+| **php / libapache2-mod-php** | Lenguaje de scripting | Procesar el `index.php` que consulta la BBDD. |
+| **php-mysql** | Conector PHP | Permite a la aplicación comunicarse con MariaDB (BBDD). |
+| **mariadb-client** | Cliente MySQL | Herramienta de terminal para verificar la conexión (`mysql -h...`). |
+| **openssh-server** | Servidor SSH | **Obligatorio** para el acceso remoto con el usuario `bchecker`. |
+
+
+### 4.3. Verificación de Componentes Instalados
+
+#### 1. Verificación de Servicios Principales (Daemons)
+
+##### 1.1. Servidor Web (Apache2)
+**Comando de Verificación:**
+```bash
+sudo systemctl status apache2
+
+
+
+
+
+
 
 
