@@ -51,4 +51,6 @@ ping 192.168.22.10
 Ahora comprobaremos si el cliente pudo acceder a la Web mediante el Route
 
 URL de Acceso: http://192.168.22.10
+![Web desde Windows](../Images/web_windows.png)
+
 
