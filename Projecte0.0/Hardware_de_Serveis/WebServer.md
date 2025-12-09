@@ -374,10 +374,65 @@ mysql -h 192.168.22.11 -u bchecker -p #Se comprueba la conexión con el usuario 
 )
 
 ---
+## 6. Seguridad y Firewall (UFW)
+
+Es crítico implementar medidas de seguridad para que no hayan problemas graves. Se utilizó **UFW** para las reglas de red.
+
+### 6.1. Definición de Políticas por Defecto
+Como medida de seguridad base, se bloquearon todas las conexiones entrantes para asegurar que ningún puerto innecesario quedara expuesto accidentalmente.
+
+```bash
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+```
+![deny](../Images/deny.PNG)
+### 6.2. Apertura de Puertos de Servicio
+Se habilitaron únicamente los puertos necesarios para los servicios que se iban a utilizar:
+
+```bash
+sudo ufw allow 22/tcp
+sudo ufw allow 80/tcp
+```
+![allow](../Images/allow.PNG)
 
 
-## 6. Pruebas Finales y Resultado
-### 6.1. Acceso y Visualización de la Web
+### 6.3. Activación y Verificación
+Una vez creada las reglas del firewall lo activamos y verificamos el estado.
+
+```bash
+sudo ufw enable
+sudo ufw status verbose
+```
+![allow](../Images/verbose.PNG)
+
+---
+## 7. Problemas Encontrados y Soluciones
+
+Durante el proyecto surgieron varios problemas con distintas funciones y servicios. Estos son algunos de los muchos que han surgido y su solución.
+
+### Error "Connection Refused" (111)
+* **Problema:** El log de Apache mostraba `mysqli_sql_exception: Connection refused` al intentar conectar con la BBDD.
+* **Causa:** La Base de Datos (MariaDB) estaba configurada por defecto para escuchar solo en `127.0.0.1` (localhost), rechazando conexiones externas.
+* **Solución:** Se modificó la configuración del servidor BBDD (`/etc/mysql/mariadb.conf.d/50-server.cnf`) cambiando el `bind-address` a `0.0.0.0` y se reinició el servicio.
+
+### Error "Host not allowed to connect"
+* **Problema:** La conexión llegaba a la BBDD pero era rechazada con un error de permisos.
+* **Causa:** El usuario `bchecker` no tenía permisos para conectarse desde la IP de la DMZ (`%`).
+* **Solución:** Se ejecutó en la base de datos el comando: `GRANT ALL PRIVILEGES... TO 'bchecker'@'%'`.
+
+### Error de Librería PHP ("Pantalla Blanca")
+* **Problema:** La página web se mostraba en blanco sin mensajes de error.
+* **Causa:** Faltaba la librería `php-mysql`, por lo que PHP no sabía cómo ejecutar las funciones de base de datos y se detenía fatalmente.
+* **Solución:** Se instaló el paquete faltante (`sudo apt install php-mysql`) y se reinició Apache.
+
+### Timeout de Conexión (Error 2002/115)
+* **Problema:** Durante las pruebas finales, se obtuvo un error de tiempo de espera (*Connection timed out*).
+* **Causa:** El servidor de Base de Datos estaba apagado o desconectado de la red `net-Intranet`.
+* **Solución:** Se verificó el encendido de las máquinas y la correcta conexión a las redes virtuales en Isard.
+
+---
+## 8. Pruebas Finales y Resultado
+### 8.1. Acceso y Visualización de la Web
 
 Se comprueba si la implemetanción ha sido correcta y se procede a visualizar la Web
 
